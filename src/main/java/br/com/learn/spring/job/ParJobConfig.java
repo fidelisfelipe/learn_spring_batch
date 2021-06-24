@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.learn.spring.chunk.ChunkPar;
+import br.com.learn.spring.step.chunk.ChunkPar;
 
 @EnableBatchProcessing
 @Configuration

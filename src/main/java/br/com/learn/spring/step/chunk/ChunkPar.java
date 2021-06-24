@@ -1,4 +1,4 @@
-package br.com.learn.spring.chunk;
+package br.com.learn.spring.step.chunk;
 
 import java.util.Arrays;
 import java.util.List;
