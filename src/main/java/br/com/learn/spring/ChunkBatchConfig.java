@@ -35,7 +35,7 @@ public class ChunkBatchConfig {
 	private Step showParStep() {
 		return stepBuilderFactory
 				.get("showParStep")
-				.<Integer, String>chunk(1)
+				.<Integer, String>chunk(1000)
 				.reader(countForTenReader())
 				.processor(parOrImparProcessor())
 				.writer(showWriter())
