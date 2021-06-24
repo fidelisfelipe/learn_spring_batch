@@ -1,5 +1,9 @@
 package br.com.learn.spring;
 
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
@@ -10,6 +14,11 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.function.FunctionItemProcessor;
+import org.springframework.batch.item.support.IteratorItemReader;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,40 +26,42 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 @EnableBatchProcessing
 @Configuration
-public class BatchConfig {
+public class ChunkBatchConfig {
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
 	
 	@Bean
-	public Job showJob() {
+	public Job showParJob() {
 		return jobBuilderFactory
-				.get("showJob")
-				.start(showStep())
+				.get("showParJob")
+				.start(showParStep())
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
 
-	private Step showStep() {
+	private Step showParStep() {
 		return stepBuilderFactory
-				.get("showStep")
-				.tasklet(showTasklet(null))
+				.get("showParStep")
+				.<Integer, String>chunk(1)
+				.reader(countForTenReader())
+				.processor(parOrImparProcessor())
+				.writer(showWriter())
 				.build();
 	}
 
-	@Bean
-	@StepScope
-	public Tasklet showTasklet(@Value("#{jobParameters['name']}") String name) {
-		return new Tasklet() {
-			@Override
-			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-				System.out.println(String.format("showStep %s!", name));
-				return RepeatStatus.FINISHED;
-			}
-		};
+	private ItemWriter<? super String> showWriter() {
+		return itens -> itens.forEach(System.out::println);
 	}
-	
-	
-	
+
+	private FunctionItemProcessor<Integer,String> parOrImparProcessor() {
+		return new FunctionItemProcessor<>(item -> item % 2 == 0 ? String.format("Item %s é Par", item) : String.format("Item %s é Impar", item));
+	}
+
+	private IteratorItemReader<Integer> countForTenReader() {
+		List<Integer> numOneForTen = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+		return new IteratorItemReader<Integer>(numOneForTen.iterator());
+	}
+
 }
