@@ -1,0 +1,18 @@
+2021-06-24 17:55:05,262 INFO b.c.l.s.LearnSpringBatchApplication [main] Starting LearnSpringBatchApplication using Java 15.0.2 on NBDF788 with PID 21228 (D:\tool\git\github\learn_spring_batch\target\classes started by Fidelis.Guimaraes in D:\tool\git\github\learn_spring_batch)
+2021-06-24 17:55:05,265 INFO b.c.l.s.LearnSpringBatchApplication [main] No active profile set, falling back to default profiles: default
+2021-06-24 17:55:05,603 INFO o.s.c.a.ConfigurationClassEnhancer [main] @Bean method PropsConfig.config is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2021-06-24 17:55:05,797 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2021-06-24 17:55:06,116 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-06-24 17:55:06,171 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: MYSQL
+2021-06-24 17:55:06,307 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2021-06-24 17:55:06,376 INFO b.c.l.s.LearnSpringBatchApplication [main] Started LearnSpringBatchApplication in 1.447 seconds (JVM running for 2.278)
+2021-06-24 17:55:06,456 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=showParJob]] launched with the following parameters: [{name=JobNameDinamic, run.id=18}]
+2021-06-24 17:55:06,491 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [showParStep]
+2021-06-24 17:55:06,516 INFO o.s.b.c.s.AbstractStep [main] Step: [showParStep] executed in 25ms
+2021-06-24 17:55:06,527 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=showParJob]] completed with the following parameters: [{name=JobNameDinamic, run.id=18}] and the following status: [COMPLETED] in 53ms
+2021-06-24 17:55:06,547 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=showJob]] launched with the following parameters: [{name=JobNameDinamic, run.id=22}]
+2021-06-24 17:55:06,565 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [showStep]
+2021-06-24 17:55:06,578 INFO o.s.b.c.s.AbstractStep [main] Step: [showStep] executed in 13ms
+2021-06-24 17:55:06,588 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=showJob]] completed with the following parameters: [{name=JobNameDinamic, run.id=22}] and the following status: [COMPLETED] in 37ms
+2021-06-24 17:55:06,591 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-06-24 17:55:06,601 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

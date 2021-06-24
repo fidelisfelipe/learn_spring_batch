@@ -13,7 +13,7 @@ public class PropsConfig {
 	@Bean
 	public PropertySourcesPlaceholderConfigurer config() {
 		PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
-		configurer.setLocation(new FileSystemResource(Paths.get("..\\dbconfig\\learn_spring_batch\\application.properties")));
+		configurer.setLocation(new FileSystemResource(Paths.get("..\\config\\learn_spring_batch\\application.properties")));
 		return configurer;
 	}
 	
