@@ -1,4 +1,4 @@
-package br.com.learn.spring.job;
+package br.com.learn.spring.file.width.fixed.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -6,21 +6,23 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @EnableBatchProcessing
 @Configuration
-public class SimpleJobConfig {
+public class FileWidthFixedJobConfig {
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 	
 	@Bean
-	public Job showJob(Step step) {
+	public Job fileWidthFixedJob(@Qualifier("fileWidthFixedStep") Step step) {
 		return jobBuilderFactory
-				.get("showJob")
+				.get("fileWidthFixedJob")
 				.start(step)
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
+
 }

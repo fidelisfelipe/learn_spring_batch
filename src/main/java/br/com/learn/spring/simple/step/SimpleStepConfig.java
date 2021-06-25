@@ -1,4 +1,4 @@
-package br.com.learn.spring.step;
+package br.com.learn.spring.simple.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;

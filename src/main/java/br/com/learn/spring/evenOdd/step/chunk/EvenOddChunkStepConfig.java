@@ -1,4 +1,4 @@
-package br.com.learn.spring.step.chunk;
+package br.com.learn.spring.evenOdd.step.chunk;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,29 +9,31 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.batch.item.support.IteratorItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@Component
-public class ChunkPar {
+@Configuration
+public class EvenOddChunkStepConfig {
 	
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
 	
-	public Step showParStep() {
+	@Bean
+	public Step evenOddStep() {
 		return stepBuilderFactory
-				.get("showParStep")
+				.get("evenOddStep")
 				.<Integer, String>chunk(1000)
 				.reader(countForTenReader())
-				.processor(parOrImparProcessor())
-				.writer(showWriter())
+				.processor(evenOddProcessor())
+				.writer(writer())
 				.build();
 	}
 
-	private ItemWriter<? super String> showWriter() {
+	private ItemWriter<? super String> writer() {
 		return itens -> itens.forEach(System.out::println);
 	}
 
-	private FunctionItemProcessor<Integer,String> parOrImparProcessor() {
+	private FunctionItemProcessor<Integer,String> evenOddProcessor() {
 		return new FunctionItemProcessor<>(item -> item % 2 == 0 ? String.format("Item %s é Par", item) : String.format("Item %s é Impar", item));
 	}
 

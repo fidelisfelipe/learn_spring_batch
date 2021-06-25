@@ -1,31 +1,27 @@
-package br.com.learn.spring.job;
+package br.com.learn.spring.simple.job;
 
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.learn.spring.step.chunk.ChunkPar;
-
 @EnableBatchProcessing
 @Configuration
-public class ParJobConfig {
+public class SimpleJobConfig {
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 	
-	@Autowired
-	private ChunkPar chunk;
-	
 	@Bean
-	public Job showParJob() {
+	public Job showJob(@Qualifier("showStep") Step step) {
 		return jobBuilderFactory
-				.get("showParJob")
-				.start(chunk.showParStep())
+				.get("showJob")
+				.start(step)
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
-
 }

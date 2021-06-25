@@ -1,4 +1,4 @@
-package br.com.learn.spring.model;
+package br.com.learn.spring.comum.model;
 
 public class Cliente {
 
