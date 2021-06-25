@@ -11,7 +11,7 @@ import org.springframework.core.io.FileSystemResource;
 public class PropsConfig {
 
 	@Bean
-	public PropertySourcesPlaceholderConfigurer config() {
+	public static PropertySourcesPlaceholderConfigurer config() {
 		PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
 		configurer.setLocation(new FileSystemResource(Paths.get("..\\config\\learn_spring_batch\\application.properties")));
 		return configurer;
