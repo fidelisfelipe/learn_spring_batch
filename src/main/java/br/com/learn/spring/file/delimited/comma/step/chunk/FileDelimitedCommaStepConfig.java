@@ -1,4 +1,4 @@
-package br.com.learn.spring.file.width.fixed.step.chunk;
+package br.com.learn.spring.file.delimited.comma.step.chunk;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -12,15 +12,15 @@ import org.springframework.context.annotation.Configuration;
 import br.com.learn.spring.comum.model.Client;
 
 @Configuration
-public class FileWidthFixedStepConfig {
+public class FileDelimitedCommaStepConfig {
 
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
 
 	@Bean
-	public Step fileWidthFixedStep(@Qualifier("fileWidthFixedReader")  ItemReader<Client> reader, @Qualifier("fileWidthFixedWriter")ItemWriter<Client> writer) {
+	public Step fileDelimitedCommaStep(@Qualifier("fileDelimitedCommaReader") ItemReader<Client> reader, @Qualifier("fileDelimitedCommaWriter")ItemWriter<Client> writer) {
 		return stepBuilderFactory
-				.get("fileWidthFixedStep")
+				.get("fileDelimitedCommaStep")
 				.<Client, Client>chunk(4)
 				.reader(reader)
 				.writer(writer)

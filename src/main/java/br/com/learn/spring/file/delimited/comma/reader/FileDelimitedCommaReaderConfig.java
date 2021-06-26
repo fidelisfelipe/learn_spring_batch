@@ -1,4 +1,4 @@
-package br.com.learn.spring.file.width.fixed.reader;
+package br.com.learn.spring.file.delimited.comma.reader;
 
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemReader;
@@ -12,17 +12,16 @@ import org.springframework.core.io.Resource;
 import br.com.learn.spring.comum.model.Client;
 
 @Configuration
-public class FileWidthFixedReaderConfig {
+public class FileDelimitedCommaReaderConfig {
 	
 	@StepScope
 	@Bean
-	public FlatFileItemReader<Client> fileWidthFixedReader(@Value("#{jobParameters['arquivoClientes']}") Resource arquivoClientes) {
+	public FlatFileItemReader<Client> fileDelimitedCommaReader(@Value("#{jobParameters['fileDelimitedComma']}") Resource file) {
 		return new FlatFileItemReaderBuilder<Client>()
-				.name("fileWidthFixedReader")
-				.resource(arquivoClientes)
-				.fixedLength()
-				.columns(new Range[] {new Range(1,10), new Range(11,20), new Range(21,23), new Range(24,42)})
-				.names(new String[] {"nome","sobrenome","idade","email"})
+				.name("fileDelimitedCommaReader")
+				.resource(file)
+				.delimited()
+				.names(new String[] {"firstName","lastname","age","email"})
 				.targetType(Client.class)
 				.build();
 	}

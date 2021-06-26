@@ -18,7 +18,7 @@ The following guides illustrate how to use some features concretely:
 
 
 ###Arguments with run project
--stepName=HelloStep -arquivoClientes=file:files/clientes.txt
+-stepName=HelloStep -fileWidthFixed=file:files/file_width_fixed.txt -fileDelimitedComma=file:files/file_delimited_comma.txt
 
 ###Properties file
 run in root of project mkdir ..\config\learn_spring_batch\application.properties
