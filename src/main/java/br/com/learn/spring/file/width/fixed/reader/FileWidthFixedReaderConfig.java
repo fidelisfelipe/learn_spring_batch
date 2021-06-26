@@ -16,13 +16,13 @@ public class FileWidthFixedReaderConfig {
 	
 	@StepScope
 	@Bean
-	public FlatFileItemReader<Client> fileWidthFixedReader(@Value("#{jobParameters['arquivoClientes']}") Resource arquivoClientes) {
+	public FlatFileItemReader<Client> fileWidthFixedReader(@Value("#{jobParameters['fileWidthFixed']}") Resource file) {
 		return new FlatFileItemReaderBuilder<Client>()
 				.name("fileWidthFixedReader")
-				.resource(arquivoClientes)
+				.resource(file)
 				.fixedLength()
 				.columns(new Range[] {new Range(1,10), new Range(11,20), new Range(21,23), new Range(24,42)})
-				.names(new String[] {"nome","sobrenome","idade","email"})
+				.names(new String[] {"firstName","lastName","age","email"})
 				.targetType(Client.class)
 				.build();
 	}
