@@ -12,14 +12,14 @@ import org.springframework.context.annotation.Configuration;
 
 @EnableBatchProcessing
 @Configuration
-public class FileMultipleFormatsJobConfig {
+public class FileListMultipleFormatsJobConfig {
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
-	
+
 	@Bean
-	public Job fileMultipleFormatsJob(@Qualifier("fileMultipleFormatsStep") Step step) {
+	public Job fileListMultipleFormatsDelegateJob(@Qualifier("fileListMultipleFormatsDelegateStep") Step step) {
 		return jobBuilderFactory
-				.get("fileMultipleFormatsJob")
+				.get("fileListMultipleFormatsDelegateJob")
 				.start(step)
 				.incrementer(new RunIdIncrementer())
 				.build();

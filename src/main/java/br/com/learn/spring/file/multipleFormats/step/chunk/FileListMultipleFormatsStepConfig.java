@@ -14,29 +14,22 @@ import org.springframework.context.annotation.Configuration;
 import br.com.learn.spring.comum.model.Client;
 
 @Configuration
-public class FileMultipleFormatsStepConfig {
+public class FileListMultipleFormatsStepConfig {
 
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Bean
+	public Step fileListMultipleFormatsDelegateStep(@Qualifier("fileListMultipleFormatsReader") MultiResourceItemReader<Client> reader, @Qualifier("fileMultipleFormatsWriter")ItemWriter writer) {
+		return stepBuilderFactory
+				.get("fileListMultipleFormatsDelegateStep")
+				.chunk(4)
+				.reader(reader)
+				.writer(writer)
+				.build();
+	}
+	
 
-	@Bean
-	public Step fileMultipleFormatsStep(@Qualifier("fileMultipleFormatsReader") ItemReader<Client> reader, @Qualifier("fileMultipleFormatsWriter")ItemWriter<Client> writer) {
-		return stepBuilderFactory
-				.get("fileMultipleFormatsStep")
-				.<Client, Client>chunk(4)
-				.reader(reader)
-				.writer(writer)
-				.build();
-	}
-	
-	@Bean
-	public Step filetMultipleFormatsDelegateStep(@Qualifier("fileMultipleFormatsReader") FlatFileItemReader<Client> reader, @Qualifier("fileMultipleFormatsWriter")ItemWriter<Client> writer) {
-		return stepBuilderFactory
-				.get("fileMultipleFormatsDelegateStep")
-				.<Client, Client>chunk(4)
-				.reader(reader)
-				.writer(writer)
-				.build();
-	}
-	
+
 }

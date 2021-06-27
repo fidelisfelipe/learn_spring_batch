@@ -3,17 +3,19 @@ package br.com.learn.spring.file.delimited.comma.reader;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemStreamException;
 import org.springframework.batch.item.ItemStreamReader;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
+import org.springframework.core.io.Resource;
 
 import br.com.learn.spring.comum.model.Client;
 import br.com.learn.spring.comum.model.Transaction;
 
-public class FileTransactionClientReader implements ItemStreamReader<Client>{
+public class FileTransactionClientReader implements ItemStreamReader<Client>, ResourceAwareItemReaderItemStream<Client>{
 
 	private Object objectCurrent;
-	private ItemStreamReader<Object> delegate;
+	private FlatFileItemReader<Object> delegate;
 	
-	
-	public FileTransactionClientReader(ItemStreamReader<Object> delegate) {
+	public FileTransactionClientReader(FlatFileItemReader<Object> delegate) {
 		this.delegate = delegate;
 	}
 	
@@ -53,6 +55,11 @@ public class FileTransactionClientReader implements ItemStreamReader<Client>{
 	private Object peek() throws Exception {
 		objectCurrent = delegate.read();
 		return objectCurrent;
+	}
+
+	@Override
+	public void setResource(Resource resource) {
+		delegate.setResource(resource);		
 	}
 
 }

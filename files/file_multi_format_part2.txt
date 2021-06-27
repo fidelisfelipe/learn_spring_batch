@@ -1,0 +1,8 @@
+0,Pedro,Silva,30,joao@test.com
+1,t1c1,Cadeado,50.80
+1,t2c1,TV,5000
+0,Paulo,Silva,31,maria@test.com
+1,t1c2,Chave,200
+1,t2c2,Bola,1099.99
+0,Lucas,Silva,32,josé@test.com
+1,t1c3,Sofá,500.45
