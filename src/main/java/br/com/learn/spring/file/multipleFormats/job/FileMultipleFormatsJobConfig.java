@@ -24,5 +24,13 @@ public class FileMultipleFormatsJobConfig {
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
+	@Bean
+	public Job fileMultipleFormatsDelegateJob(@Qualifier("fileMultipleFormatsDelegateStep") Step step) {
+		return jobBuilderFactory
+				.get("fileMultipleFormatsDelegateJob")
+				.start(step)
+				.incrementer(new RunIdIncrementer())
+				.build();
+	}
 
 }
