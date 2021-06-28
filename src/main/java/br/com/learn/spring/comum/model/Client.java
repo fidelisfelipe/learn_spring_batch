@@ -18,7 +18,7 @@ public class Client {
 	public String getFirstName() {
 		return firstName;
 	}
-	public void setFistName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 	public String getLastName() {
