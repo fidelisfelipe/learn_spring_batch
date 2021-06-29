@@ -21,7 +21,7 @@ public class JdbcPagingStepConfig {
 	public Step jdbcPagingStep(@Qualifier("jdbcPagingReader")  ItemReader<Client> reader, @Qualifier("jdbcPagingWriter")ItemWriter<Client> writer) {
 		return stepBuilderFactory
 				.get("jdbcPagingStep")
-				.<Client, Client>chunk(4)
+				.<Client, Client>chunk(1)
 				.reader(reader)
 				.writer(writer)
 				.build();
