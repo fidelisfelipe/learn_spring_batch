@@ -21,10 +21,9 @@ public class FileDelimitedCommaReaderConfig {
 				.name("fileDelimitedCommaReader")
 				.resource(file)
 				.delimited()
-				.names(new String[] {"firstName","lastName","age","email"})
+				.names(new String[] {"firstname","lastname","age","email"})
 				.targetType(Client.class)
 				.build();
 	}
-
 	
 }

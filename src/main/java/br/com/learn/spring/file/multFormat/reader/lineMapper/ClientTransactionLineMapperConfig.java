@@ -48,7 +48,7 @@ public class ClientTransactionLineMapperConfig {
 
 	private LineTokenizer clientLineTokenizer() {
 		DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
-		lineTokenizer.setNames("firstName","lastName","age","email");
+		lineTokenizer.setNames("firstname","lastname","age","email");
 		lineTokenizer.setIncludedFields(1,2,3,4);
 		return lineTokenizer;
 	}

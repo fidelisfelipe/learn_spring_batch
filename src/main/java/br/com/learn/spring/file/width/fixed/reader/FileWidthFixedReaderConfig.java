@@ -22,7 +22,7 @@ public class FileWidthFixedReaderConfig {
 				.resource(file)
 				.fixedLength()
 				.columns(new Range[] {new Range(1,10), new Range(11,20), new Range(21,23), new Range(24,42)})
-				.names(new String[] {"firstName","lastName","age","email"})
+				.names(new String[] {"firstname","lastname","age","email"})
 				.targetType(Client.class)
 				.build();
 	}
