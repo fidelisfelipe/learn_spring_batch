@@ -35,7 +35,7 @@ public class JdbcSkipReaderConfig {
 
 			@Override
 			public Client mapRow(ResultSet rs, int rowNum) throws SQLException{
-				SQLException sqlEx = new SQLException(String.format("Finally execution - Client not valid - %s", rs.getString("email")), "22");//add data exception SQLState
+//				SQLException sqlEx = new SQLException(String.format("Finally execution - Client not valid - %s", rs.getString("email")), "22");//add data exception SQLState
 //				if(rs.getRow() >= 3 )
 //					throw sqlEx;
 //				else
