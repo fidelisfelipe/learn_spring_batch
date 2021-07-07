@@ -17,13 +17,25 @@ The following guides illustrate how to use some features concretely:
 * [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
 
 
-###Arguments with run project
--stepName=HelloStep -fileWidthFixed=file:files/file_width_fixed.txt -fileDelimitedComma=file:files/file_delimited_comma.txt
+###Arguments with run project 
+-stepName=HelloStep 
+-fileWidthFixed=file:files/file_width_fixed.txt 
+-fileDelimitedComma=file:files/file_delimited_comma.txt 
+-fileMultipleFormats=file:files/file_multi_format_part1.txt 
+-fileListMultipleFormats=file:files/file_multi_format*.txt 
+-fileXml=file:files/file.xml -fileJson=file:files/file.json
 
-###Properties file
-run in root of project mkdir ..\config\learn_spring_batch\application.properties
+###Properties files
+create in folder for config external
 
-with content personal:
+> mkdir ..\config\learn_spring_batch
+
+>add config\learn_spring_batch\application.properties
+
+>add config\learn_spring_batch\log4j.xml
+
+#With content personal in application.properties:
+
 ###BD Primary
 ```
 spring.datasource.jdbcUrl=jdbc:mysql://localhost:3306/name_your_bd?useUnicode=true
@@ -38,3 +50,6 @@ app.datasource.username=you_user_app
 app.datasource.password=you_app_password
 app.batch.jdbc.initialize-schema=always
 ```
+
+
+
