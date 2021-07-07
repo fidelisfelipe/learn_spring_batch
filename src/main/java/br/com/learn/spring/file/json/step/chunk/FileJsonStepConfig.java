@@ -26,6 +26,4 @@ public class FileJsonStepConfig {
 				.writer(writer)
 				.build();
 	}
-
-
 }
