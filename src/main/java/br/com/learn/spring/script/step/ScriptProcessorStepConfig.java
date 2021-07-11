@@ -1,4 +1,4 @@
-package br.com.learn.spring.validation.step;
+package br.com.learn.spring.script.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -12,21 +12,21 @@ import org.springframework.context.annotation.Configuration;
 import br.com.learn.spring.comum.model.Client;
 
 @Configuration
-public class ValidationProcessorStepConfig {
+public class ScriptProcessorStepConfig {
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 	
 	@Bean
-	public Step validationProcessStep(
-			ItemReader<Client> validationProcessReader,
-			ItemProcessor<Client, Client> validationProcess,
-			ItemWriter<Client> validationProcessWriter) {
+	public Step scriptProcessStep(
+			ItemReader<Client> scriptProcessReader,
+			ItemProcessor<Client, Client> scriptProcessProcessor,
+			ItemWriter<Client> scriptProcessWriter) {
 		return stepBuilderFactory
-				.get("validationProcessStep")
+				.get("scriptProcessStep")
 				.<Client, Client>chunk(1)
-				.reader(validationProcessReader)
-				.processor(validationProcess)
-				.writer(validationProcessWriter)
+				.reader(scriptProcessReader)
+				.processor(scriptProcessProcessor)
+				.writer(scriptProcessWriter)
 				.build();
 	}
 }
