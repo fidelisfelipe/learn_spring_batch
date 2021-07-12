@@ -11,15 +11,6 @@ import org.springframework.core.io.Resource;
 
 import br.com.learn.spring.comum.model.Client;
 
-/**
- * O job vai ler clientes e imprimí-los no console (mostrar o job config).
- * 
- * Mostrar o formato do arquivo de clientes.
- * 
- * Rodar aplicação com: arquivoClientes=file:files/clientes.txt
- * 
- * Para mostrar o restart, comentar o incrementer e adicionar exceção no writer.
- */
 @Configuration
 public class WidthFixedReaderConfig {
 	
