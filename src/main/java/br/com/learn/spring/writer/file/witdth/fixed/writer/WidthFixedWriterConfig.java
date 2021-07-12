@@ -22,7 +22,7 @@ public class WidthFixedWriterConfig {
 				.name("writeFileWidthFixedWriter")
 				.resource(fileOut)
 				.formatted()
-				.format("%9s %9s %2s %19s")
+				.format("%-9s %-9s %-2s %-19s")
 				.names("firstName","lastName","age","email")
 				.build();
 	}
