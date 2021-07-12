@@ -1,13 +1,14 @@
-package br.com.learn.spring.file.delimited.comma.writer;
+package br.com.learn.spring.file.classifier.writer;
 
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class FileDelimitedCommaWriterConfig {
+public class ClassifierWriterConfig {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
-	public ItemWriter<br.com.learn.spring.comum.model.Client> fileDelimitedCommaWriter() {
+	public ItemWriter processadorClassifierWriter() {
 		return items -> items.forEach(System.out::println);
 	}
 }

@@ -10,6 +10,6 @@ import br.com.learn.spring.comum.model.Client;
 public class ScriptProcessorWriterConfig {
 	@Bean
 	public ItemWriter<Client> scriptProcessWriter() {
-		return clients -> clients.forEach(System.out::println);
+		return (clients) -> clients.forEach(System.out::println);
 	}
 }

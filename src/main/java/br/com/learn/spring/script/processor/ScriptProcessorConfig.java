@@ -10,7 +10,7 @@ import br.com.learn.spring.comum.model.Client;
 @Configuration
 public class ScriptProcessorConfig {
 	
-	//simple validate for annotation JSR 349 
+	//simple validate for annotation JSR 223 
 	@Bean
 	public ItemProcessor<Client, Client> scriptProcessProcessor() throws Exception {
 		return new ScriptItemProcessorBuilder<Client, Client>()
