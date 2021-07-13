@@ -18,12 +18,18 @@ The following guides illustrate how to use some features concretely:
 
 
 ###Arguments with run project 
+
+```java
 -stepName=HelloStep 
 -fileWidthFixed=file:files/file_width_fixed.txt 
 -fileDelimitedComma=file:files/file_delimited_comma.txt 
 -fileMultipleFormats=file:files/file_multi_format_part1.txt 
 -fileListMultipleFormats=file:files/file_multi_format*.txt 
--fileXml=file:files/file.xml -fileJson=file:files/file.json
+-fileXml=file:files/file.xml -fileJson=file:files/file.json 
+-fileOut=file:files/write/file_width_fixed.txt 
+-fileOutTwo=file:files/write/file_width_fixed_two.txt
+
+```
 
 ###Properties files
 create in folder for config external
