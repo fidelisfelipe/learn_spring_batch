@@ -18,7 +18,7 @@ public class FileWidthFixedStepConfig {
 	private StepBuilderFactory stepBuilderFactory;
 
 	@Bean
-	public Step fileWidthFixedStep(@Qualifier("fileWidthFixedReader")  ItemReader<Client> reader, @Qualifier("fileWidthFixedWriter")ItemWriter<Client> writer) {
+	public Step fileWidthFixedStep(@Qualifier("fileWidthFixedReader")  ItemReader<Client> reader, @Qualifier("fileDelimitedWriter")ItemWriter<Client> writer) {
 		return stepBuilderFactory
 				.get("fileWidthFixedStep")
 				.<Client, Client>chunk(4)
