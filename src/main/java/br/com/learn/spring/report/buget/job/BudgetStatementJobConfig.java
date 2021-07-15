@@ -1,4 +1,4 @@
-package br.com.learn.spring.validation.job;
+package br.com.learn.spring.report.buget.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -9,17 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@EnableBatchProcessing
 @Configuration
-public class ValidationProcessorJobConfig {
+@EnableBatchProcessing
+public class BudgetStatementJobConfig {
 	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
+	public JobBuilderFactory jobBuilderFactory;
 	
 	@Bean
-	public Job validationProcessJob(Step validationProcessStep) {
+	public Job budgetStatementJob(Step budgetStatementStep) {
 		return jobBuilderFactory
-				.get("validationProcessJob")
-				.start(validationProcessStep)
+				.get("budgetStatementJob")
+				.start(budgetStatementStep)
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}

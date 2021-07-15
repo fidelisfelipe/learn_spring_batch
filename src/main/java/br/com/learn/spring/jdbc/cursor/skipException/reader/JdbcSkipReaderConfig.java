@@ -2,8 +2,6 @@ package br.com.learn.spring.jdbc.cursor.skipException.reader;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLTransientException;
-import java.util.zip.DataFormatException;
 
 import javax.sql.DataSource;
 

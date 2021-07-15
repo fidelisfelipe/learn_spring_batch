@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.oxm.xstream.XStreamMarshaller;
 
-import com.thoughtworks.xstream.XStream;
-
 import br.com.learn.spring.comum.model.Trade;
 
 @Configuration
