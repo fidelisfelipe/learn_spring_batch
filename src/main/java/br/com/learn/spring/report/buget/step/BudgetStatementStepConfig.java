@@ -2,7 +2,7 @@ package br.com.learn.spring.report.buget.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.file.MultiResourceItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,11 +22,11 @@ public class BudgetStatementStepConfig {
 			//MultiResourceItemReader<PaymentGroup> budgetStatementReader,
 			// Esse aqui lê do banco de dados
 			PaymentGroupReader budgetStatementReader,
-			ItemWriter<PaymentGroup> budgetStatementWriter,
+			MultiResourceItemWriter<PaymentGroup> budgetStatementWriter,
 			BugetFooter footerCallback) {
 		return stepBuilderFactory
 				.get("budgetStatementStep")
-				.<PaymentGroup,PaymentGroup>chunk(100)
+				.<PaymentGroup,PaymentGroup>chunk(1)
 				.reader(budgetStatementReader)
 				.writer(budgetStatementWriter)
 				.listener(footerCallback)

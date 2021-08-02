@@ -5,7 +5,9 @@ import java.io.Writer;
 import java.text.NumberFormat;
 import java.util.List;
 
+import org.springframework.batch.core.annotation.AfterChunk;
 import org.springframework.batch.core.annotation.BeforeWrite;
+import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.item.file.FlatFileFooterCallback;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +29,11 @@ public class BugetFooter implements FlatFileFooterCallback{
 		paymentGroupList.forEach((item) ->{
 			totalAll+= item.getTotal();
 		});
+	}
+	
+	@AfterChunk
+	public void afterChunk(ChunkContext context) {
+		totalAll = 0.0;
 	}
 	
 }
