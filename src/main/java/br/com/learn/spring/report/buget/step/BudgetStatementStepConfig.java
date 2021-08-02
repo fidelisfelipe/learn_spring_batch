@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.learn.spring.comum.model.PaymentGroup;
 import br.com.learn.spring.report.buget.reader.PaymentGroupReader;
+import br.com.learn.spring.report.buget.writer.BugetFooter;
 
 @Configuration
 public class BudgetStatementStepConfig {
@@ -21,12 +22,14 @@ public class BudgetStatementStepConfig {
 			//MultiResourceItemReader<PaymentGroup> budgetStatementReader,
 			// Esse aqui lê do banco de dados
 			PaymentGroupReader budgetStatementReader,
-			ItemWriter<PaymentGroup> budgetStatementWriter) {
+			ItemWriter<PaymentGroup> budgetStatementWriter,
+			BugetFooter footerCallback) {
 		return stepBuilderFactory
 				.get("budgetStatementStep")
 				.<PaymentGroup,PaymentGroup>chunk(100)
 				.reader(budgetStatementReader)
 				.writer(budgetStatementWriter)
+				.listener(footerCallback)
 				.build();
 	}
 }
