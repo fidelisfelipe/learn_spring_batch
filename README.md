@@ -55,6 +55,13 @@ app.datasource.jdbcUrl=jdbc:mysql://localhost:3306/app?useUnicode=true
 app.datasource.username=you_user_app
 app.datasource.password=you_app_password
 app.batch.jdbc.initialize-schema=always
+
+```
+
+###CONFIG LOG
+
+```
+logging.level.org.springframework.jdbc.core=DEBUG
 ```
 
 

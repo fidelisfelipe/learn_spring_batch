@@ -22,13 +22,13 @@ public class AccountStepConfig {
 	public Step accountStep(
 			ItemReader<? extends Client> accountReader,
 			ItemProcessor<? super Client, ? extends Account> generatorAccountProcessor,
-			ItemWriter<? super Account> accountWriter) {
+			ItemWriter<? super Account> jdbcAccountWriter) {
 		return stepBuilderFactory
 				.get("accountStep")
 				.<Client, Account>chunk(100)
 				.reader(accountReader)
 				.processor(generatorAccountProcessor)
-				.writer(accountWriter)
+				.writer(jdbcAccountWriter)
 				.build();
 	}
 	
