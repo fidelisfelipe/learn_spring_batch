@@ -34,6 +34,7 @@ public class GeneratorAccountClassifier implements Classifier<Client, ItemProces
 				put(AccountType.GOLD, new AccountGoldItemProcessor());
 				put(AccountType.PLATINUM, new AccountPlatinumItemProcessor());
 				put(AccountType.DIAMOND, new AccountDiamondItemProcessor());
+				put(AccountType.INVALID, new AccountInvalidItemProcessor());
 			}};
 	
 }

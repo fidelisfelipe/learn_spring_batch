@@ -1,5 +1,5 @@
 SISTEMA INTEGRADO: XPTO 				 DATA: 11/08/2021 
-MÓDULO: ORÇAMENTO 						 HORA: 22:08 
+MÓDULO: ORÇAMENTO 						 HORA: 23:08 
 			DEMONSTRATIVO ORCAMENTARIO
 ----------------------------------------------------------------------------
 CODIGO NOME VALOR
