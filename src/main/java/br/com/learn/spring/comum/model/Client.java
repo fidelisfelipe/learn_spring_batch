@@ -30,6 +30,8 @@ public class Client {
 	private String email;
 	private List<Transaction> transactionList = new ArrayList<>();
 	
+	private Double salaryRange;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -62,10 +64,19 @@ public class Client {
 	public void setTransactionList(List<Transaction> transactionList) {
 		this.transactionList = transactionList;
 	}
+	
+	public Double getSalaryRange() {
+		return salaryRange;
+	}
+
+	public void setSalaryRange(Double salaryRange) {
+		this.salaryRange = salaryRange;
+	}
+
 	@Override
 	public String toString() {
 		return "Client [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", email=" + email
-				+ ", transactionList=" + transactionList + "]";
+				+ ", transactionList=" + transactionList + ", salaryRange=" + salaryRange + "]";
 	}
-	
+
 }

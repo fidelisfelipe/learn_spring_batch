@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class DataSourceConfig {
 
+	//por padrão o spring só utiliza o contexto transacional para o banco primário
 	@Primary
 	@Bean
 	@ConfigurationProperties(prefix="spring.datasource")
